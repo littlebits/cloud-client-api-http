@@ -1,0 +1,22 @@
+{
+  "name": "littlebits-cloud-http",
+  "version": "0.0.0",
+  "description": "Lightweight wrapper for littleBits Cloud HTTP API",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/littlebitselectronics/cloud-api-http-client.git"
+  },
+  "author": "Jason Kuhrt <jasonkuhrt@me.com> (http://jasonkuhrt.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/littlebitselectronics/cloud-api-http-client/issues"
+  },
+  "homepage": "https://github.com/littlebitselectronics/cloud-api-http-client",
+  "dependencies": {
+    "superagent": "~0.17.0"
+  }
+}
