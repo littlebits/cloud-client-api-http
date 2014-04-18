@@ -8,12 +8,8 @@ var lo = require('lodash'),
 
 
 
-describe('cloud-client-api-http', tests);
-
-
-
-function tests(){
-  var defs1, defaults2;
+describe('cloud-client-api-http', function(){
+  var defs1, defs2;
 
   beforeEach(function(){
     defs1 = {
@@ -21,34 +17,31 @@ function tests(){
       accessToken: 'dev',
       apiVersion: '1'
     };
-    defaults2 = {
+    defs2 = {
       apiVersion: '2'
     };
   });
 
-  it('api.defaults stores default options', function(){
-    var api1 = API.defaults(defs1);
-    assert.deepEqual(api1.defaults(), defs1, 'defaults have been stored');
+
+
+  describe('api.defaults', function(){
+    it('stores default options', function(){
+      test_defaults_store(API, defs1, {});
+    });
+
+    it('returns a new api object, it does not mutate api', function(){
+      test_defaults_immutable(API, defs1, defs2);
+    });
+
+    it('is infinitely recursive', function(){
+      this.slow(200); // This test will be a bit slower than others, up the warning limit
+      test_defaults_recursive(API, defs1, defs2);
+    });
   });
 
-  it('api.defaults returns a new api object, it does not mutate api', function(){
-    var api1 = API.defaults(defs1);
-    var api2 = api1.defaults(defaults2);
-    assert.deepEqual(api2.defaults(), merge({}, defs1, defaults2), 'new defaults have been stored');
-    assert.deepEqual(api1.defaults(), defs1, 'new api was created, old api not mutated');
-  });
 
-  it('api.defaults is infinitely recursive', function(){
-    this.slow(200); // This test will be a bit slower than others, up the warning limit
-    var api1 = API.defaults(defs1);
-    var api_n = api1.defaults(defaults2);
-    var i = 0;
-    while (i++ <= 10000) api_n = api_n.defaults(defaults2);
-    assert.deepEqual(api_n.defaults(), merge({}, defs1, defaults2), 'new defaults have been stored');
-    assert.deepEqual(api1.defaults(), defs1, 'new api was created, old api not mutated');
-  });
 
-  describe('<f>.defaults', function(){
+  describe('api[name].defaults', function(){
     var api, mdefs1;
 
     beforeEach(function(){
@@ -57,8 +50,39 @@ function tests(){
     });
 
     it('stores default options', function(){
-      var output = api.output.defaults(mdefs1);
-      assert.deepEqual(output.defaults(), merge({}, defs1, mdefs1), 'defaults have been stored');
+      test_defaults_store(api.output, mdefs1, defs1);
+    });
+
+    it('returns a new function, it does not mutate function', function(){
+      test_defaults_immutable(api.output, defs1, defs2);
+    });
+
+    it('is infinitely recursive', function(){
+      this.slow(200); // This test will be a bit slower than others, up the warning limit
+      test_defaults_recursive(api.output, defs1, defs2);
     });
   });
+});
+
+
+
+function test_defaults_store(o, adefs, bdefs){
+  var a = o.defaults(adefs);
+  assert.deepEqual(a.defaults(), merge({}, bdefs, adefs), 'defaults have been stored');
+}
+
+function test_defaults_immutable(o, adefs, bdefs){
+  var a = o.defaults(adefs);
+  var b = a.defaults(bdefs);
+  assert.deepEqual(b.defaults(), merge({}, adefs, bdefs), 'new defaults have been stored');
+  assert.deepEqual(a.defaults(), adefs, 'new api was created, old api not mutated');
+}
+
+function test_defaults_recursive(o, adefs, bdefs){
+  var a = o.defaults(adefs);
+  var b = a.defaults(bdefs);
+  var i = 0;
+  while (i++ <= 10000) b = b.defaults(bdefs);
+  assert.deepEqual(b.defaults(), merge({}, adefs, bdefs), 'new defaults have been stored');
+  assert.deepEqual(a.defaults(), adefs, 'new api was created, old api not mutated');
 }
