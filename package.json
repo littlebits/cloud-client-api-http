@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/littlebitselectronics/cloud-api-http-client",
   "dependencies": {
-    "request": "~2.34.0",
     "superagent": "~0.17.0"
+  },
+  "devDependencies": {
+    "request": "~2.34.0"
   }
 }
