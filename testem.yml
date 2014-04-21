@@ -12,6 +12,7 @@ launchers:
 before_tests: browserify test/index.js -o browserified.js
 on_exit: rm browserified.js
 launch_in_ci:
+  - node
   - phantomjs
 launch_in_dev:
   - node
