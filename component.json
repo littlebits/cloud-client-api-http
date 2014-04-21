@@ -5,7 +5,15 @@
   "main": "index.js",
   "scripts": [
     "index.js",
-    "lib/**/*.js"
+    "lib/customizations.js",
+    "lib/make-method.js",
+    "lib/method-process-signature.js",
+    "lib/route-utils.js",
+    "assets/routes.js"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "lodash/lodash": "^2.4.1",
+    "visionmedia/superagent": "~0.17.0"
+  }
 }
