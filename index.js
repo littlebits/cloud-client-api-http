@@ -1,7 +1,6 @@
 'use strict';
 
-var lo = require('lodash'),
-    merge = lo.merge;
+var merge =  require('lodash').merge;
 var make_method = require('./lib/make-method');
 var routes = require('./assets/routes');
 var rutils = require('./lib/route-utils');
@@ -25,12 +24,6 @@ function API(base_defaults){
 
   return api;
 }
-
-
-
-
-
-
 
 
 
