@@ -9,6 +9,7 @@ var lo = require('lodash'),
 
 
 describe('cloud-client-api-http', function(){
+  require('./method-process-signature');
   var defs1, defs2;
 
   beforeEach(function(){
