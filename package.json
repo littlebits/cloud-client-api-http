@@ -23,6 +23,8 @@
   "devDependencies": {
     "request": "~2.34.0",
     "lodash": "~2.4.1",
-    "mocha": "~1.18.2"
+    "mocha": "~1.18.2",
+    "es5-shim": "~3.0.2",
+    "testem": "~0.6.15"
   }
 }
