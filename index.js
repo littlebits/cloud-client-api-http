@@ -3,7 +3,7 @@
 var lo = require('lodash'),
     merge = lo.merge;
 var make_method = require('./lib/make-method');
-var routes = require('./assets/api-http-endpoints');
+var routes = require('./assets/routes');
 var rutils = require('./lib/route-utils');
 
 
