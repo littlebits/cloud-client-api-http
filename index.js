@@ -29,7 +29,7 @@ function API(base_defaults){
 
 var root_defaults = {
   host: 'https://api-rest.littlebitscloud.cc',
-  apiVersion: '1'
+  version: '1'
 };
 
 
