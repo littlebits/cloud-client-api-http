@@ -8,7 +8,7 @@
     "test": "testem ci",
     "dev": "mocha --watch --reporter spec",
     "devall": "testem",
-    "download-routes": "node scripts/download-api-http-endpoints.js"
+    "download-routes": "node scripts/download-routes.js > assets/routes.js"
   },
   "repository": {
     "type": "git",
