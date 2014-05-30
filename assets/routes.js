@@ -1,257 +1,271 @@
 module.exports = [
   {
-    "path": "/cloudbits",
+    "path": "/ping",
     "method": "GET",
-    "auth": [
-      "oauth"
-    ],
-    "pathParams": null,
-    "queryParams": null,
-    "payloadParams": null,
-    "responseParams": null
-  },
-  {
-    "path": "/cloudbits/{bit_id}",
-    "method": "GET",
-    "auth": [
-      "oauth"
-    ],
+    "auth": false,
     "pathParams": {
-      "type": "object",
+      "type": "any",
       "required": false,
       "allowedValues": null,
-      "disallowedValues": null,
-      "children": [
-        {
-          "name": "bit_id",
-          "type": "string",
-          "required": false,
-          "allowedValues": null,
-          "disallowedValues": null
-        }
-      ]
+      "disallowedValues": null
     },
-    "queryParams": null,
-    "payloadParams": null,
-    "responseParams": null
+    "queryParams": {
+      "type": "any",
+      "required": false,
+      "allowedValues": null,
+      "disallowedValues": null
+    },
+    "payloadParams": {
+      "type": "any",
+      "required": false,
+      "allowedValues": null,
+      "disallowedValues": null
+    },
+    "responseParams": null,
+    "version": null
   },
   {
-    "path": "/cloudbits/{bit_id}",
+    "path": "/devices",
+    "method": "GET",
+    "auth": [
+      "bearer"
+    ],
+    "pathParams": {
+      "type": "any",
+      "required": false,
+      "allowedValues": null,
+      "disallowedValues": null
+    },
+    "queryParams": {
+      "type": "any",
+      "required": false,
+      "allowedValues": null,
+      "disallowedValues": null
+    },
+    "payloadParams": {
+      "type": "any",
+      "required": false,
+      "allowedValues": null,
+      "disallowedValues": null
+    },
+    "responseParams": null,
+    "version": "2"
+  },
+  {
+    "path": "/devices/{device_id}",
+    "method": "GET",
+    "auth": [
+      "bearer"
+    ],
+    "pathParams": {
+      "type": "any",
+      "required": false,
+      "allowedValues": null,
+      "disallowedValues": null
+    },
+    "queryParams": {
+      "type": "any",
+      "required": false,
+      "allowedValues": null,
+      "disallowedValues": null
+    },
+    "payloadParams": {
+      "type": "any",
+      "required": false,
+      "allowedValues": null,
+      "disallowedValues": null
+    },
+    "responseParams": null,
+    "version": "2"
+  },
+  {
+    "path": "/devices/{device_id}",
     "method": "POST",
     "auth": [
-      "oauth"
+      "bearer"
     ],
     "pathParams": {
-      "type": "object",
+      "type": "any",
       "required": false,
       "allowedValues": null,
-      "disallowedValues": null,
-      "children": [
-        {
-          "name": "bit_id",
-          "type": "string",
-          "required": false,
-          "allowedValues": null,
-          "disallowedValues": null
-        }
-      ]
+      "disallowedValues": null
     },
-    "queryParams": null,
-    "payloadParams": null,
-    "responseParams": null
+    "queryParams": {
+      "type": "any",
+      "required": false,
+      "allowedValues": null,
+      "disallowedValues": null
+    },
+    "payloadParams": {
+      "type": "any",
+      "required": false,
+      "allowedValues": null,
+      "disallowedValues": null
+    },
+    "responseParams": null,
+    "version": "2"
   },
   {
-    "path": "/cloudbits/{bit_id}",
+    "path": "/devices/{device_id}",
     "method": "PUT",
     "auth": [
-      "oauth"
+      "bearer"
     ],
     "pathParams": {
-      "type": "object",
+      "type": "any",
       "required": false,
       "allowedValues": null,
-      "disallowedValues": null,
-      "children": [
-        {
-          "name": "bit_id",
-          "type": "string",
-          "required": false,
-          "allowedValues": null,
-          "disallowedValues": null
-        }
-      ]
+      "disallowedValues": null
     },
-    "queryParams": null,
+    "queryParams": {
+      "type": "any",
+      "required": false,
+      "allowedValues": null,
+      "disallowedValues": null
+    },
     "payloadParams": {
-      "type": "object",
+      "type": "any",
       "required": false,
       "allowedValues": null,
-      "disallowedValues": null,
-      "children": [
-        {
-          "name": "update",
-          "type": "object",
-          "required": true,
-          "allowedValues": null,
-          "disallowedValues": null,
-          "children": [
-            {
-              "name": "label",
-              "type": "string",
-              "required": false,
-              "allowedValues": null,
-              "disallowedValues": null
-            }
-          ]
-        }
-      ]
+      "disallowedValues": null
     },
-    "responseParams": null
+    "responseParams": null,
+    "version": "2"
   },
   {
-    "path": "/cloudbits/{bit_id}",
+    "path": "/devices/{device_id}",
     "method": "DELETE",
     "auth": [
-      "oauth"
+      "bearer"
     ],
     "pathParams": {
-      "type": "object",
+      "type": "any",
       "required": false,
       "allowedValues": null,
-      "disallowedValues": null,
-      "children": [
-        {
-          "name": "bit_id",
-          "type": "string",
-          "required": false,
-          "allowedValues": null,
-          "disallowedValues": null
-        }
-      ]
+      "disallowedValues": null
     },
-    "queryParams": null,
-    "payloadParams": null,
-    "responseParams": null
+    "queryParams": {
+      "type": "any",
+      "required": false,
+      "allowedValues": null,
+      "disallowedValues": null
+    },
+    "payloadParams": {
+      "type": "any",
+      "required": false,
+      "allowedValues": null,
+      "disallowedValues": null
+    },
+    "responseParams": null,
+    "version": "2"
   },
   {
-    "path": "/cloudbits/{bit_id}/output",
+    "path": "/devices/{device_id}/output",
     "method": "POST",
     "auth": [
-      "oauth"
+      "bearer"
     ],
     "pathParams": {
-      "type": "object",
+      "type": "any",
       "required": false,
       "allowedValues": null,
-      "disallowedValues": null,
-      "children": [
-        {
-          "name": "bit_id",
-          "type": "string",
-          "required": false,
-          "allowedValues": null,
-          "disallowedValues": null
-        }
-      ]
+      "disallowedValues": null
     },
-    "queryParams": null,
+    "queryParams": {
+      "type": "any",
+      "required": false,
+      "allowedValues": null,
+      "disallowedValues": null
+    },
     "payloadParams": {
       "type": "object",
-      "required": false,
+      "required": null,
       "allowedValues": null,
       "disallowedValues": null,
       "children": [
         {
-          "name": "amount",
-          "type": "alternatives",
+          "name": "percent",
+          "type": "number",
           "required": null,
           "allowedValues": null,
-          "disallowedValues": null,
-          "alternatives": [
-            {
-              "type": "any",
-              "required": false,
-              "allowedValues": [
-                "idle",
-                "active"
-              ],
-              "disallowedValues": null
-            },
-            {
-              "type": "string",
-              "required": false,
-              "allowedValues": null,
-              "disallowedValues": null
-            },
-            {
-              "type": "number",
-              "required": false,
-              "allowedValues": null,
-              "disallowedValues": null
-            }
-          ]
+          "disallowedValues": null
         },
         {
           "name": "duration_ms",
           "type": "number",
-          "required": false,
+          "required": null,
           "allowedValues": null,
           "disallowedValues": null
         }
       ]
     },
-    "responseParams": null
+    "responseParams": null,
+    "version": "2"
   },
   {
-    "path": "/cloudbits/{bit_id}/subscriptions",
+    "path": "/subscriptions",
     "method": "GET",
     "auth": [
-      "oauth"
+      "bearer"
     ],
     "pathParams": {
-      "type": "object",
+      "type": "any",
       "required": false,
+      "allowedValues": null,
+      "disallowedValues": null
+    },
+    "queryParams": {
+      "type": "object",
+      "required": null,
       "allowedValues": null,
       "disallowedValues": null,
       "children": [
         {
-          "name": "bit_id",
+          "name": "publisher_id",
           "type": "string",
-          "required": false,
+          "required": null,
+          "allowedValues": null,
+          "disallowedValues": null
+        },
+        {
+          "name": "subscriber_id",
+          "type": "string",
+          "required": null,
           "allowedValues": null,
           "disallowedValues": null
         }
       ]
     },
-    "queryParams": null,
-    "payloadParams": null,
-    "responseParams": null
+    "payloadParams": {
+      "type": "any",
+      "required": false,
+      "allowedValues": null,
+      "disallowedValues": null
+    },
+    "responseParams": null,
+    "version": "2"
   },
   {
-    "path": "/cloudbits/{bit_id}/subscriptions",
+    "path": "/subscriptions",
     "method": "POST",
     "auth": [
-      "oauth"
+      "bearer"
     ],
     "pathParams": {
-      "type": "object",
+      "type": "any",
       "required": false,
       "allowedValues": null,
-      "disallowedValues": null,
-      "children": [
-        {
-          "name": "bit_id",
-          "type": "string",
-          "required": false,
-          "allowedValues": null,
-          "disallowedValues": null
-        }
-      ]
+      "disallowedValues": null
     },
-    "queryParams": null,
+    "queryParams": {
+      "type": "any",
+      "required": false,
+      "allowedValues": null,
+      "disallowedValues": null
+    },
     "payloadParams": {
       "type": "object",
-      "required": false,
+      "required": null,
       "allowedValues": null,
       "disallowedValues": null,
       "children": [
@@ -263,13 +277,20 @@ module.exports = [
           "disallowedValues": null
         },
         {
+          "name": "publisher_id",
+          "type": "string",
+          "required": true,
+          "allowedValues": null,
+          "disallowedValues": null
+        },
+        {
           "name": "publisher_events",
           "type": "array",
-          "required": false,
+          "required": null,
           "allowedValues": null,
           "disallowedValues": null,
           "rules": {
-            "includes": [
+            "Includes": [
               {
                 "type": "any",
                 "required": false,
@@ -286,133 +307,53 @@ module.exports = [
               }
             ]
           }
-        },
-        {
-          "name": "subscriber_type",
-          "type": "string",
-          "required": false,
-          "allowedValues": null,
-          "disallowedValues": null
         }
       ]
     },
-    "responseParams": null
+    "responseParams": null,
+    "version": "2"
   },
   {
-    "path": "/cloudbits/{bit_id}/subscriptions",
+    "path": "/subscriptions",
     "method": "DELETE",
     "auth": [
-      "oauth"
+      "bearer"
     ],
     "pathParams": {
-      "type": "object",
+      "type": "any",
       "required": false,
+      "allowedValues": null,
+      "disallowedValues": null
+    },
+    "queryParams": {
+      "type": "any",
+      "required": false,
+      "allowedValues": null,
+      "disallowedValues": null
+    },
+    "payloadParams": {
+      "type": "object",
+      "required": null,
       "allowedValues": null,
       "disallowedValues": null,
       "children": [
         {
-          "name": "bit_id",
+          "name": "publisher_id",
           "type": "string",
-          "required": false,
+          "required": true,
           "allowedValues": null,
           "disallowedValues": null
-        }
-      ]
-    },
-    "queryParams": null,
-    "payloadParams": {
-      "type": "object",
-      "required": false,
-      "allowedValues": null,
-      "disallowedValues": null,
-      "children": [
+        },
         {
           "name": "subscriber_id",
           "type": "string",
           "required": true,
           "allowedValues": null,
           "disallowedValues": null
-        },
-        {
-          "name": "subscriber_type",
-          "type": "string",
-          "required": false,
-          "allowedValues": null,
-          "disallowedValues": null
         }
       ]
     },
-    "responseParams": null
-  },
-  {
-    "path": "/cloudbits/{bit_id}/wifi",
-    "method": "POST",
-    "auth": [
-      "oauth"
-    ],
-    "pathParams": {
-      "type": "object",
-      "required": false,
-      "allowedValues": null,
-      "disallowedValues": null,
-      "children": [
-        {
-          "name": "bit_id",
-          "type": "string",
-          "required": false,
-          "allowedValues": null,
-          "disallowedValues": null
-        }
-      ]
-    },
-    "queryParams": null,
-    "payloadParams": {
-      "type": "object",
-      "required": false,
-      "allowedValues": null,
-      "disallowedValues": null,
-      "children": [
-        {
-          "name": "ssid",
-          "type": "string",
-          "required": true,
-          "allowedValues": null,
-          "disallowedValues": null
-        },
-        {
-          "name": "lat",
-          "type": "number",
-          "required": false,
-          "allowedValues": null,
-          "disallowedValues": null
-        },
-        {
-          "name": "lon",
-          "type": "number",
-          "required": false,
-          "allowedValues": null,
-          "disallowedValues": null
-        }
-      ]
-    },
-    "responseParams": null
-  },
-  {
-    "path": "/options",
-    "method": "GET",
-    "auth": false,
-    "pathParams": null,
-    "queryParams": null,
-    "payloadParams": null,
-    "responseParams": null
-  },
-  {
-    "path": "/ping",
-    "method": "GET",
-    "auth": false,
-    "pathParams": null,
-    "queryParams": null,
-    "payloadParams": null,
-    "responseParams": null
+    "responseParams": null,
+    "version": "2"
   }
 ];
