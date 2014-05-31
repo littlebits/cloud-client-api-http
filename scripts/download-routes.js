@@ -1,8 +1,7 @@
 var r = require('request');
 
 
-// var uri = 'https://api-rest-stage.littlebitscloud.cc/options';
-var uri = 'http://localhost:8000/options';
+var uri = 'https://api-rest-stage.littlebitscloud.cc/options';
 
 r.get(uri, {json: true}, handle_response);
 
