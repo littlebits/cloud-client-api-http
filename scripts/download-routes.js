@@ -9,6 +9,10 @@ r.get(uri, {json: true}, handle_response);
 
 
 function handle_response(err, res, body){
+  if (err && err.code === 'ECONNREFUSED') {
+    console.log('Supposed server at %s is unreachable', uri);
+    throw err;
+  }
   process.stdout.write(prepare_source(body));
 }
 

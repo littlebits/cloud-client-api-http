@@ -2,9 +2,9 @@
   "name": "littlebits-cloud-http",
   "version": "0.0.3",
   "description": "Lightweight wrapper for littleBits Cloud HTTP API",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": [
-    "index.js",
+    "lib/index.js",
     "lib/customizations.js",
     "lib/make-method.js",
     "lib/method-process-signature.js",
@@ -14,6 +14,10 @@
   "license": "MIT",
   "dependencies": {
     "lodash/lodash": "^2.4.1",
-    "visionmedia/superagent": "~0.18.0"
+    "visionmedia/superagent": "~0.17.0"
+  },
+  "development": {
+    "jasonkuhrt/plat": "~0.1.0",
+    "chaijs/chai": "^1.9.1"
   }
 }

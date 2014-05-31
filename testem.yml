@@ -1,19 +1,18 @@
 framework: mocha
 serve_files:
-  - node_modules/es5-shim/es5-shim.js
-  - browserified.js
+  - build/**/*.js
 src_files:
-  - test/index.js
-  - hello.js
+  - test/*.coffee
+  - index.js
+  - lib/**/*.js
 launchers:
   Node:
-    command: node_modules/.bin/mocha test/index.js -R tap
+    command: node_modules/.bin/mocha --compilers 'coffee:coffee-script/register' -R tap
     protocol: tap
-before_tests: browserify test/index.js -o browserified.js
-on_exit: rm browserified.js
+before_tests: node_modules/.bin/coffee -o build/test -c test && node_modules/.bin/component build --dev
+on_exit: rm -rf build
 launch_in_ci:
   - node
-  - phantomjs
 launch_in_dev:
   - node
-  - phantomjs
+  - chrome
