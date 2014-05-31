@@ -22,7 +22,7 @@ merge = lo.merge
 
 
 
-describe 'cloud-client-api-http', ->
+describe '.defaults', ->
   defs1 = defs2 = undefined
 
   beforeEach ->
@@ -35,7 +35,7 @@ describe 'cloud-client-api-http', ->
 
 
 
-  describe '.defaults', ->
+  describe 'on parent API object (.defaults)', ->
 
     it 'stores default options', ->
       test_defaults_store API, defs1, {}
@@ -51,7 +51,7 @@ describe 'cloud-client-api-http', ->
 
 
 
-  describe '.<function>.defaults', ->
+  describe 'on api function (.<function>.defaults)', ->
     api = mdefs1 = undefined
 
     beforeEach ->

@@ -18,7 +18,7 @@ describe 'process_signature', ->
   it 'foo(<id>)', ->
     r = process_signature(0: 'foo')
     assert.deepEqual
-      bit_id: 'foo'
+      device_id: 'foo'
     , r.overrides
     assert.typeOf r.cb, 'function'
 
@@ -29,7 +29,7 @@ describe 'process_signature', ->
       1: { host: 'foobar' }
     })
     assert.deepEqual
-      bit_id: 'foo'
+      device_id: 'foo'
       host: 'foobar'
     , r.overrides
     assert.typeOf r.cb, 'function'
@@ -42,7 +42,7 @@ describe 'process_signature', ->
       2: noop
     })
     assert.deepEqual
-      bit_id: 'foo'
+      device_id: 'foo'
       host: 'foobar'
     , r.overrides
     assert r.cb is noop
