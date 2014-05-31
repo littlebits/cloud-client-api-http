@@ -8,7 +8,7 @@
     "test": "testem ci",
     "dev": "mocha --compilers 'coffee:coffee-script/register' --watch --reporter spec",
     "devall": "testem",
-    "download-routes": "node scripts/download-routes.js > assets/routes.js"
+    "download-routes": "node scripts/download-routes.js > lib/routes.js"
   },
   "repository": {
     "type": "git",

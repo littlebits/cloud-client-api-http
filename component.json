@@ -9,7 +9,7 @@
     "lib/make-method.js",
     "lib/method-process-signature.js",
     "lib/route-utils.js",
-    "assets/routes.js"
+    "lib/routes.js"
   ],
   "license": "MIT",
   "dependencies": {

@@ -17,5 +17,6 @@ function handle_response(err, res, body){
 }
 
 function prepare_source(source){
-  return 'module.exports = ' + JSON.stringify(source, null, 2) + ';';
+  return  '\n// Generated from scripts/download-routes.js on '+ Date() +
+          '\n\nmodule.exports = ' + JSON.stringify(source, null, 2) + ';';
 }
