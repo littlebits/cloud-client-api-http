@@ -13,6 +13,7 @@ before_tests: node_modules/.bin/coffee -o build/test -c test && node_modules/.bi
 on_exit: rm -rf build
 launch_in_ci:
   - node
+  - phantomjs
 launch_in_dev:
   - node
-  - chrome
+  - phantomjs
