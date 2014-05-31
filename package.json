@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/littlebitselectronics/cloud-api-http-client.git"
+    "url": "git://github.com/littlebits/cloud-client-api-http.git"
   },
   "author": "Jason Kuhrt <jasonkuhrt@me.com> (http://jasonkuhrt.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/littlebitselectronics/cloud-api-http-client/issues"
+    "url": "https://github.com/littlebits/cloud-client-api-http/issues"
   },
-  "homepage": "https://github.com/littlebitselectronics/cloud-api-http-client",
+  "homepage": "https://github.com/littlebits/cloud-client-api-http",
   "dependencies": {
     "superagent": "~0.17.0",
     "lodash": "~2.4.1"
