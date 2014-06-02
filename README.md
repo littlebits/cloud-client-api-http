@@ -136,6 +136,8 @@ For all arity cases:
 
 #### Defaults system
 
+#### .defaults()
+
 ##### get
 ```
 defaults :: -> Options
