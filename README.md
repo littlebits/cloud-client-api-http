@@ -45,7 +45,7 @@ api.output('foobar2', { percent: 50, durationMs: 5000 })
 api.output({device_id: 'foobar2', percent: 50, durationMs: 5000 })
 // Hm, these arguments are getting repetitive, lets stop this.
 
-output = api.output.defaults({device_id: 'foobar2', percent: 50, durationMs: 5000 })
+var output = api.output.defaults({device_id: 'foobar2', percent: 50, durationMs: 5000 })
 // Better. Now we have a output function with new defaults.
 // and we can always call .defaults again should we wish.
 // Lets use it now.
@@ -86,18 +86,169 @@ api.defualts()
 
 
 
-## API Intro
+## API Functions
 
-#### Signatures
+Abbreviated information. See [*API Function Signatures*](#api-function-signatures) for details about the argument pattern uniformly accepted.
 
-All functions (***except `.defaults`***) are variadic-polymorphic, following these defintions.
+#### .defaults()
 
-**Arity 0**
+See [*Defaults System*](#defaults-system).
+
+
+----
+#### .devices()
+
+Get information for all devices.
+
+`callback` result argument: `[Device]`
+
+
+----
+#### .device()
+
+Get information for one device.
+
+`options` arguments
+
+  - `device_id :: String`
+
+`callback` result argument: `Device`
+
+
+----
+#### .activate()
+
+Activate one device. (FYI: associates device to user; User id is attained from the provided access_token)
+
+`options` arguments
+
+  - `device_id :: String`
+
+`callback` result argument: `Device`
+
+
+----
+#### .deactivate()
+
+Dectivate one device.
+
+`options` arguments
+
+  - `device_id :: String`
+
+`callback` result argument: `Device`
+
+
+----
+#### .output()
+
+Send amplitude out of the device.
+
+`options` arguments:
+
+  - `percent :: Float | >= 0, <= 100`
+  - `durationMs :: Integer | >= 0`
+  - `device_id :: String`
+
+`callback` result argument: ***TODO***
+
+
+----
+#### .subscriptions()
+
+Get the subscriptions for given sub/pub.
+
+`options` arguments:
+
+  - `?` `subscriber: device_id || uri`  
+    Filter subscriptions to those where `subscriber_id` matches.
+  - `?` `publisher: device_id`  
+    Filter subscriptions to those where `publisher_id` matches.
+
+`callback` result argument: `[Subscription]`
+
+
+----
+#### .unsubscribe()
+
+Delete the subscription for given sub/pub.
+
+`options` arguments:
+
+  - `subscriber :: device_id || uri`
+  - `publisher :: device_id`
+
+`callback` result argument: ***TODO***
+
+
+----
+#### .subscribe()
+
+Create a new subscription for given sub/pub.
+
+`options` arguments:
+
+  - `subscriber :: device_id || uri`
+  - `publisher :: device_id`
+  - `?` `publisherEvents :: [Event]`  
+    Defaults to: `["amplitude:delta:ignite"]`
+
+`callback` result argument: ***TODO***
+
+
+
+## Types
+
+##### Event
+```
+A String of any following value:
+
+"amplitude"
+"amplitude:delta:sustain"
+"amplitude:delta:ignite"
+"amplitude:delta:release"
+"amplitude:delta:nap"
+"amplitude:level:active"
+"amplitude:level:idle"
+```
+
+##### Subscription
+```
+{
+  subscriber_id    :: device_id || URI
+  publisher_id     :: device_id
+  publisher_events :: [Event]
+}
+```
+
+##### Device
+```
+{
+  id            :: String
+  user_id       :: Integer
+  label         :: String
+  subscribers   :: [Subscription]
+  subscriptions :: [Subscription]
+}
+```
+
+
+
+## API Function Signatures
+
+All API functions (***except `.defaults`***) are variadic-polymorphic, following these defintions.
+
+##### Arity 0
 ```
 f :: -> void
 ```
+##### e.g.:
+```js
+api.output()
+```
 
 
+----
 ##### Arity 1
 ```
 f :: (err, * -> void) -> void
@@ -108,7 +259,15 @@ f :: ID -> void
 ```
 f :: Options -> void
 ```
+##### e.g.:
+```js
+api.output(function(err, result){ /*...*/ })
+api.output('foobar-device-id')
+api.output({ device_id: 'foobar-device-id', durationMs: 500 })
+```
 
+
+----
 ##### Arity 2
 ```
 f :: ID, (err, * -> void) -> void
@@ -119,22 +278,33 @@ f :: Options, (err, * -> void) -> void
 ```
 f :: ID, Options -> void
 ```
+##### e.g.:
+```js
+api.output('foobar-device-id', function(err, result){ /*...*/ })
+api.output({ device_id: 'foobar-device-id', durationMs: 500 }, function(err, result){ /*...*/ })
+api.output('foobar-device-id', { durationMs: 500 })
+```
 
+
+----
 ##### Arity 3
 ```
 f :: ID, Options, (err, * -> void) -> void
 ```
-
+##### e.g.:
+```js
+api.output('foobar-device-id', { durationMs: 500 }, function(err, result){ /*...*/ })
+```
 For all arity cases:
 
 - `Options` arguments that you omit are patched by defaults. You may customize defaults (see next section).
 
-- `ID` refers to `device_id` which can alternatively be argued in `Options` as `device_id`. All api functions accept `ID`/`device_id:` but only the following actually *use* it: `output`, `device`.
+- `ID` refers to `device_id` which can alternatively be argued in `Options` as `device_id`. Certain functions do not need a `device_id`, such as `subscribe` in which case it is useless (but harmless), to argue this.
 
 - `callback` is patched by `console.log`. This is useful for rapid manual tests, playing around, etc. It also helps keep track of unhandled `callbacks` which you *should* be handling in non-trivial work. If you really want a `noop` then just argue one.
 
 
-#### Defaults system
+## Defaults system
 
 #### .defaults()
 
@@ -179,113 +349,3 @@ defaults :: Options -> API_Function
 Create a new api function (f) with new defaults. Existing f is not mutated.
 
 `options` arguments: See docs for each function respectively.
-
-
-
-## API Functions
-
-#### .device()
-
-Get device information
-
-`callback` result argument: `Device`
-
-
-----
-#### .devices()
-
-Get information for all devices
-
-`callback` result argument: `[Device]`
-
-
-----
-#### .output()
-
-Send amplitude out of the device
-
-`options` arguments:
-
-  - `percent: Float | >= 0, <= 100`
-  - `durationMs: Integer | >= 0`
-
-`callback` result argument: ***TODO***
-
-
-----
-#### .subscriptions()
-
-Get the subscriptions for given sub/pub.
-
-`options` arguments:
-
-  - `?` `subscriber: device_id || uri`  
-    Filter subscriptions to those where `subscriber_id` matches.
-  - `?` `publisher: device_id`  
-    Filter subscriptions to those where `publisher_id` matches.
-
-`callback` result argument: `[Subscription]`
-
-
-----
-#### .unsubscribe()
-
-Delete the subscription for given sub/pub
-
-`options` arguments:
-
-  - `subscriber: device_id || uri`
-  - `publisher: device_id`
-
-`callback` result argument: ***TODO***
-
-
-----
-#### .subscribe()
-
-Create a new subscription for given sub/pub
-
-`options` arguments:
-
-  - `subscriber: device_id || uri`
-  - `publisher: device_id`
-  - `?` `publisherEvents: [Event]`
-
-`callback` result argument: ***TODO***
-
-
-
-## Types
-
-##### Event
-```
-A String of any following value:
-
-'amplitude'
-'amplitude:delta:sustain'
-'amplitude:delta:ignite'
-'amplitude:delta:release'
-'amplitude:delta:nap'
-'amplitude:level:active'
-'amplitude:level:idle'
-```
-
-##### Subscription
-```
-{
-  subscriber_id:    device_id || URI
-  publisher_id:     device_id
-  publisher_events: [Event]
-}
-```
-
-##### Device
-```
-{
-  id: String
-  user_id: Integer
-  label: String
-  subscribers: [Subscription]
-  subscriptions: [Subscription]
-}
-```
