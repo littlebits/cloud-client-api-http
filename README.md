@@ -19,7 +19,7 @@ On the server (soon, not published yet):
 
 ```js
 var api = require('littlebits-cloud-http')
-          .defaults({ accessToken: 'askdjfldaksjfkdlsjfdkl234324' });
+          .defaults({ access_token: 'askdjfldaksjfkdlsjfdkl234324' });
 // We've created a new instance of our api with an access_token to be used by all requests.
 
 api = api.defaults({ device_id: 'foobar' })

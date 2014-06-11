@@ -13,7 +13,7 @@ describe '.output', ->
 
 
 
-  it 'accepts percent and durationMs', (done)->
+  it 'accepts percent and duration_ms', (done)->
     conf =
       duration_ms: 50
       percent: 99

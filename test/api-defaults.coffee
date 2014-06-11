@@ -8,7 +8,7 @@ describe '.defaults', ->
   beforeEach ->
     defs1 =
       host: 'api-rest-stage.littlebitscloud.cc'
-      accessToken: 'dev'
+      access_token: 'dev'
       version: '1'
 
     defs2 = { version: '2' }
