@@ -8,11 +8,9 @@ devices = API.devices
 
 describe '.devices', ->
 
-  it 'sends a GET /devices to server', (done)->
-    n = nock('https://api-http.littlebitscloud.cc')
-      .get('/devices')
-      .reply(200, [])
+  beforeEach ->
+    @server = fix.request()
+      .get('/devices').reply(200, [])
 
-    devices (err, result)->
-      assert.nock_done n
-      done()
+  it 'sends a GET /devices to server', (done)->
+    api.devices a.successful_response @server, done

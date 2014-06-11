@@ -5,22 +5,22 @@ process_signature = API._process_signature
 describe 'process_signature', ->
   it 'foo()', ->
     r = process_signature({})
-    assert.deepEqual {}, r.overrides
-    assert.typeOf r.cb, 'function'
+    a.deepEqual {}, r.overrides
+    a.typeOf r.cb, 'function'
 
 
   it 'foo(->)', ->
     r = process_signature(0: noop)
-    assert.deepEqual {}, r.overrides
-    assert r.cb is noop
+    a.deepEqual {}, r.overrides
+    a r.cb is noop
 
 
   it 'foo(<id>)', ->
     r = process_signature(0: 'foo')
-    assert.deepEqual
+    a.deepEqual
       device_id: 'foo'
     , r.overrides
-    assert.typeOf r.cb, 'function'
+    a.typeOf r.cb, 'function'
 
 
   it 'foo(<id>, {...})', ->
@@ -28,11 +28,11 @@ describe 'process_signature', ->
       0: 'foo'
       1: { host: 'foobar' }
     })
-    assert.deepEqual
+    a.deepEqual
       device_id: 'foo'
       host: 'foobar'
     , r.overrides
-    assert.typeOf r.cb, 'function'
+    a.typeOf r.cb, 'function'
 
 
   it 'foo(<id>, {...}, ->)', ->
@@ -41,19 +41,19 @@ describe 'process_signature', ->
       1: { host: 'foobar' }
       2: noop
     })
-    assert.deepEqual
+    a.deepEqual
       device_id: 'foo'
       host: 'foobar'
     , r.overrides
-    assert r.cb is noop
+    a r.cb is noop
 
 
   it 'foo({...})', ->
     r = process_signature(0: host: 'foobar')
-    assert.deepEqual
+    a.deepEqual
       host: 'foobar'
     , r.overrides
-    assert.typeOf r.cb, 'function'
+    a.typeOf r.cb, 'function'
 
 
   it 'foo({...}, ->)', ->
@@ -61,7 +61,7 @@ describe 'process_signature', ->
       0: { host: 'foobar' }
       1: noop
     })
-    assert.deepEqual
+    a.deepEqual
       host: 'foobar'
     , r.overrides
-    assert r.cb is noop
+    a r.cb is noop

@@ -1,9 +1,10 @@
 {GLOBE, isClient} = require('plat')
 
 GLOBE.isClient = isClient
-GLOBE.assert = require('chai').assert;
+GLOBE.a = require('chai').assert;
 GLOBE.lo = require('lodash')
 GLOBE.API = if isClient then require('littlebits-cloud-http') else require('../')
+GLOBE.api = API;
 
 
 
@@ -11,7 +12,16 @@ GLOBE.API = if isClient then require('littlebits-cloud-http') else require('../'
 # skip mock testing in that environment.
 if isClient then return
 
-GLOBE.nock = require('nock')
 
-assert.nock_done = (nock)->
-  assert nock.isDone, 'nock done'
+
+GLOBE.nock = require('nock')
+GLOBE.fix = {}
+
+fix.request = ->
+  nock('https://api-http.littlebitscloud.cc')
+
+a.successful_response = (server, done)->
+  (err, result)->
+    a !err, err?.message
+    server.done()
+    done()

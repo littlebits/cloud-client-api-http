@@ -1,23 +1,3 @@
-# This test will be a bit slower than others, up the warning limit
-test_defaults_store = (o, adefs, bdefs) ->
-  a = o.defaults(adefs)
-  assert.deepEqual a.defaults(), merge({}, bdefs, adefs), 'defaults have been stored'
-
-test_defaults_immutable = (o, adefs, bdefs) ->
-  a = o.defaults(adefs)
-  b = a.defaults(bdefs)
-  assert.deepEqual b.defaults(), merge({}, adefs, bdefs), 'new defaults have been stored'
-  assert.deepEqual a.defaults(), adefs, 'new api was created, old api not mutated'
-
-test_defaults_recursive = (o, adefs, bdefs) ->
-  a = o.defaults(adefs)
-  b = a.defaults(bdefs)
-  i = 0
-  b = b.defaults(bdefs)  while i++ <= 10000
-  assert.deepEqual b.defaults(), merge({}, adefs, bdefs), 'new defaults have been stored'
-  assert.deepEqual a.defaults(), adefs, 'new api was created, old api not mutated'
-
-
 merge = lo.merge
 
 
@@ -46,7 +26,7 @@ describe '.defaults', ->
 
 
     it 'is infinitely recursive', ->
-      @slow 200
+      @slow 1000 # Tell mocha its ok for this test to be slow
       test_defaults_recursive API, defs1, defs2
 
 
@@ -65,5 +45,28 @@ describe '.defaults', ->
       test_defaults_immutable api.output, defs1, defs2
 
     it 'is infinitely recursive', ->
-      @slow 200
+      @slow 1000 # Tell mocha its ok for this test to be slow
       test_defaults_recursive api.output, defs1, defs2
+
+
+
+
+
+
+test_defaults_store = (o, adefs, bdefs) ->
+  o2 = o.defaults(adefs)
+  a.deepEqual o2.defaults(), merge({}, bdefs, adefs), 'defaults have been stored'
+
+test_defaults_immutable = (o, adefs, bdefs) ->
+  o2 = o.defaults(adefs)
+  o3 = o2.defaults(bdefs)
+  a.deepEqual o3.defaults(), merge({}, adefs, bdefs), 'new defaults have been stored'
+  a.deepEqual o2.defaults(), adefs, 'new api was created, old api not mutated'
+
+test_defaults_recursive = (o, adefs, bdefs) ->
+  o2 = o.defaults(adefs)
+  o3 = o2.defaults(bdefs)
+  i = 0
+  o3 = o3.defaults(bdefs)  while i++ <= 10000
+  a.deepEqual o3.defaults(), merge({}, adefs, bdefs), 'new defaults have been stored'
+  a.deepEqual o2.defaults(), adefs, 'new api was created, old api not mutated'
