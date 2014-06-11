@@ -7,8 +7,7 @@ return if isClient
 describe '.activate', ->
 
   beforeEach ->
-    @server = fix.request()
-      .post('/devices/a1').reply(200, {})
+    @server = fix.request().post('/devices/a1').reply(200, {})
 
   it 'sends a POST with no payload', (done)->
     api.activate 'a1', a.successful_response @server, done

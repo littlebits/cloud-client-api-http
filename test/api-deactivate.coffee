@@ -7,8 +7,7 @@ return if isClient
 describe '.deactivate', ->
 
   beforeEach ->
-    @server = fix.request()
-      .delete('/devices/a1').reply(200, {})
+    @server = fix.request().delete('/devices/a1').reply(200, {})
 
   it 'sends a DELETE with no payload', (done)->
     api.deactivate 'a1', a.successful_response @server, done

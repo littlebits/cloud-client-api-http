@@ -14,7 +14,10 @@ describe '.light', ->
 
 
   it 'accepts color, duration_ms, mode', (done)->
-    conf = { duration_ms: 50, mode: 'blink', color: 'purple' }
+    conf =
+      duration_ms: 50
+      mode: 'blink'
+      color: 'purple'
 
     server = fix.request().post('/devices/a1/light').reply(200, {})
 
