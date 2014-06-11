@@ -1,6 +1,6 @@
 # Until there is a good mocking library in browser
 # skip testing in that environment.
-if isClient then return;
+return if isClient
 
 
 
