@@ -38,14 +38,14 @@ api.output('foobar2')
 // allowing the second argument to focus on
 // your payload...
 
-api.output('foobar2', { percent: 50, durationMs: 5000 })
+api.output('foobar2', { percent: 50, duration_ms: 5000 })
 // like so :). Of course you can work with objects only
 // as needed/desired...
 
-api.output({device_id: 'foobar2', percent: 50, durationMs: 5000 })
+api.output({device_id: 'foobar2', percent: 50, duration_ms: 5000 })
 // Hm, these arguments are getting repetitive, lets stop this.
 
-var output = api.output.defaults({device_id: 'foobar2', percent: 50, durationMs: 5000 })
+var output = api.output.defaults({device_id: 'foobar2', percent: 50, duration_ms: 5000 })
 // Better. Now we have a output function with new defaults.
 // and we can always call .defaults again should we wish.
 // Lets use it now.
@@ -90,9 +90,15 @@ api.defualts()
 
 Abbreviated information. See [*API Function Signatures*](#api-function-signatures) for details about the argument pattern uniformly accepted.
 
+----
 #### .defaults()
 
 See [*Defaults System*](#defaults-system).
+
+Key Points:
+  - Supports snake_case or camelCase key names
+  - Returns new instances, does not mutate existing defaults
+  - Returns current defaults if invoked with no arguments
 
 
 ----
@@ -147,7 +153,7 @@ Send amplitude out of the device.
 `options` arguments:
 
   - `percent :: Float | >= 0, <= 100`
-  - `durationMs :: Integer | >= 0`
+  - `duration_ms :: Integer | >= 0`
   - `device_id :: String`
 
 `callback` result argument: ***TODO***
@@ -160,9 +166,9 @@ Get the subscriptions for given sub/pub.
 
 `options` arguments:
 
-  - `?` `subscriber: device_id || uri`  
+  - `?` `subscriber_id :: device_id || uri`  
     Filter subscriptions to those where `subscriber_id` matches.
-  - `?` `publisher: device_id`  
+  - `?` `publisher_id :: device_id`  
     Filter subscriptions to those where `publisher_id` matches.
 
 `callback` result argument: `[Subscription]`
@@ -175,8 +181,8 @@ Delete the subscription for given sub/pub.
 
 `options` arguments:
 
-  - `subscriber :: device_id || uri`
-  - `publisher :: device_id`
+  - `subscriber_id :: device_id || uri`
+  - `publisher_id :: device_id`
 
 `callback` result argument: ***TODO***
 
@@ -188,9 +194,9 @@ Create a new subscription for given sub/pub.
 
 `options` arguments:
 
-  - `subscriber :: device_id || uri`
-  - `publisher :: device_id`
-  - `?` `publisherEvents :: [Event]`  
+  - `subscriber_id :: device_id || uri`
+  - `publisher_id :: device_id`
+  - `?` `publisher_events :: [Event]`  
     Defaults to: `["amplitude:delta:ignite"]`
 
 `callback` result argument: ***TODO***
@@ -263,7 +269,7 @@ f :: Options -> void
 ```js
 api.output(function(err, result){ /*...*/ })
 api.output('foobar-device-id')
-api.output({ device_id: 'foobar-device-id', durationMs: 500 })
+api.output({ device_id: 'foobar-device-id', duration_ms: 500 })
 ```
 
 
@@ -281,8 +287,8 @@ f :: ID, Options -> void
 ##### e.g.:
 ```js
 api.output('foobar-device-id', function(err, result){ /*...*/ })
-api.output({ device_id: 'foobar-device-id', durationMs: 500 }, function(err, result){ /*...*/ })
-api.output('foobar-device-id', { durationMs: 500 })
+api.output({ device_id: 'foobar-device-id', duration_ms: 500 }, function(err, result){ /*...*/ })
+api.output('foobar-device-id', { duration_ms: 500 })
 ```
 
 
@@ -293,7 +299,7 @@ f :: ID, Options, (err, * -> void) -> void
 ```
 ##### e.g.:
 ```js
-api.output('foobar-device-id', { durationMs: 500 }, function(err, result){ /*...*/ })
+api.output('foobar-device-id', { duration_ms: 500 }, function(err, result){ /*...*/ })
 ```
 For all arity cases:
 
@@ -321,15 +327,15 @@ defaults :: Options -> API
 ```
 Create a new api with new defaults. Existing api instance is not mutated. All functions of new api instance will read from these new defaults.
 
-This is a good place to argue `accessToken` etc.
+This is a good place to argue `access_token` etc.
 
 `options` arguments:
 
-  - `?` `host: URI`  
+  - `?` `host :: URI`  
     The HTTP server to make requests against. By default equals `'api-http.littlebitscloud.cc'` but you may override as desired, e.g. work against local development servers.
-  - `?` `version: String`  
+  - `?` `version :: String`  
     The littleBits Cloud HTTP API version to use. By default equals `'2'`.
-  - `?` `accessToken: String`  
+  - `?` `access_token :: String`  
     The OAuth access_token that will be used by the server to authorize your requsts.
 
 

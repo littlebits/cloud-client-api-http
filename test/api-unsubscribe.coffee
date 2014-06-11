@@ -7,9 +7,10 @@ return if isClient
 describe '.unsubscribe', ->
 
   it 'sends a DELETE /subscriptions {...} to the server', (done)->
+    conf = { subscriber_id: 'a1', publisher_id: 'b1' }
+
     server = fix.request()
-      .delete('/subscriptions', { subscriber_id: 'a1', publisher_id: 'b1' })
+      .delete('/subscriptions', conf)
       .reply(200, {})
 
-    conf = { subscriber: 'a1', publisher: 'b1' }
     api.unsubscribe conf, a.successful_response server, done

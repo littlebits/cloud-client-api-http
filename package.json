@@ -21,8 +21,9 @@
   },
   "homepage": "https://github.com/littlebits/cloud-client-api-http",
   "dependencies": {
+    "lodash": "~2.4.1",
     "superagent": "~0.17.0",
-    "lodash": "~2.4.1"
+    "to-snake-case": "^0.1.2"
   },
   "devDependencies": {
     "browserify": "~3.44.1",

@@ -2,8 +2,6 @@
 # skip testing in that environment.
 return if isClient
 
-subscriptions = API.subscriptions
-
 
 
 describe '.subscriptions', ->
@@ -13,4 +11,4 @@ describe '.subscriptions', ->
       .get('/subscriptions?publisher_id=b1&subscriber_id=a1')
       .reply(200, {})
 
-    subscriptions { subscriber: 'a1', publisher: 'b1' }, a.successful_response server, done
+    api.subscriptions { subscriber_id: 'a1', publisher_id: 'b1' }, a.successful_response server, done
