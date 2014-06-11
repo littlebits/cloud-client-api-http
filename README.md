@@ -160,6 +160,21 @@ Send amplitude out of the device.
 
 
 ----
+#### .light()
+
+Activate device light.
+
+`options` arguments:
+
+  - `color :: String | "green" "yellow" "red" "blue" "purple" "white" "cyan" "clownbarf"`
+  - `mode :: String | "blink" "hold"`
+  - `duration_ms :: Integer | >= 0`
+  - `device_id :: String`
+
+`callback` result argument: ***TODO***
+
+
+----
 #### .subscriptions()
 
 Get the subscriptions for given sub/pub.
