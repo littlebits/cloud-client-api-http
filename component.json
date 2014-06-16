@@ -14,7 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "lodash/lodash": "^2.4.1",
-    "visionmedia/superagent": "~0.17.0",
+    "visionmedia/superagent": "~0.18.0",
     "ianstormtaylor/to-snake-case": "~0.1.2"
   },
   "development": {
