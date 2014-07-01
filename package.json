@@ -1,7 +1,7 @@
 {
   "name": "littlebits-cloud-http",
   "private": true,
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Lightweight wrapper for littleBits Cloud HTTP API",
   "main": "lib/index.js",
   "scripts": {
