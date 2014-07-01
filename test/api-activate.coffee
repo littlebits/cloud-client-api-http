@@ -6,11 +6,14 @@ return if isClient
 
 describe '.activate', ->
 
-  beforeEach ->
-    @server = fix.request().post('/devices/a1').reply(200, {})
-
   it 'sends a POST with no payload', (done)->
-    api.activate 'a1', a.successful_response @server, done
+    server = fix.request().post('/devices/a1').reply(200, {})
+    api.activate 'a1', a.successful_response server, done
+
+  it 'can send a POST with PUT-style payload optionally', (done)->
+    server = fix.request().post('/devices/a1', { update: { label: 'foobar' } }).reply(200, {})
+    api.activate 'a1', { update: { label: 'foobar' } }, a.successful_response server, done
 
   it 'works using conf-style', (done)->
-      api.activate { device_id: 'a1' }, a.successful_response @server, done
+    server = fix.request().post('/devices/a1').reply(200, {})
+    api.activate { device_id: 'a1' }, a.successful_response server, done
