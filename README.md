@@ -11,7 +11,7 @@ On the client:
 
 On the server (soon, not published yet):
 
-    npm install --save littlebits-cloud-http
+    npm install --save littlebits/cloud-client-api-http
 
 
 
