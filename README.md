@@ -9,7 +9,7 @@ On the client:
 
     component install littlebits/cloud-client-http-api
 
-On the server (soon, not published yet):
+On the server:
 
     npm install --save littlebits/cloud-client-api-http
 
