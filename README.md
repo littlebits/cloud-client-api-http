@@ -1,17 +1,12 @@
-# cloud-api-http-client [![build status](https://secure.travis-ci.org/littlebits/cloud-client-api-http.svg)](http://travis-ci.org/littlebits/cloud-client-api-http)
+# cloud-api-http-client [![Circle CI](https://circleci.com/gh/littlebits/cloud-client-api-http.svg?style=svg)](https://circleci.com/gh/littlebits/cloud-client-api-http)
 
 Lightweight wrapper for littleBits Cloud HTTP API
 
 
 ## Installation
-
-On the client:
-
-    component install littlebits/cloud-client-http-api
-
-On the server:
-
-    npm install --save littlebits/cloud-client-api-http
+```
+npm install --save littlebits-cloud-http
+```
 
 
 
@@ -19,7 +14,7 @@ On the server:
 
 ```js
 var api = require('littlebits-cloud-http')
-          .defaults({ access_token: 'askdjfldaksjfkdlsjfdkl234324' });
+          .defaults({ access_token: 'askdjfldaksjfkdlsjfdkl234324' })
 // We've created a new instance of our api with an access_token to be used by all requests.
 
 api = api.defaults({ device_id: 'foobar' })
