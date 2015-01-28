@@ -2,7 +2,6 @@
 
 GLOBE.isClient = isClient
 GLOBE.a = require('chai').assert;
-GLOBE.lo = require('lodash')
 GLOBE.API = if isClient then require('littlebits-cloud-http') else require('../')
 GLOBE.api = API;
 

@@ -1,4 +1,4 @@
-merge = lo.merge
+merge = require 'merge'
 
 
 

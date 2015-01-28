@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/littlebits/cloud-client-api-http",
   "dependencies": {
-    "lodash": "~2.4.1",
+    "lodash.transform": "^3.0.0",
+    "merge": "^1.2.0",
     "superagent": "~0.17.0",
     "to-snake-case": "^0.1.2"
   },
@@ -30,7 +31,6 @@
     "coffee-script": "^1.7.1",
     "component": "^1.0.0-rc5",
     "es5-shim": "~3.0.2",
-    "lodash": "~2.4.1",
     "mocha": "~1.18.2",
     "nock": "^0.32.3",
     "plat": "^0.1.0",
