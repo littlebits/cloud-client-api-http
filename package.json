@@ -14,7 +14,7 @@
     "url": "git://github.com/littlebits/cloud-client-api-http.git"
   },
   "author": "Jason Kuhrt <jasonkuhrt@me.com> (http://jasonkuhrt.com/)",
-  "license": "MIT",
+  "license": "GPLv3",
   "bugs": {
     "url": "https://github.com/littlebits/cloud-client-api-http/issues"
   },
