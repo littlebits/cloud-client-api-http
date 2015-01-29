@@ -3,13 +3,12 @@ serve_files:
   - build/**/*.js
 src_files:
   - test/*.coffee
-  - index.js
   - lib/**/*.js
 launchers:
   Node:
-    command: node_modules/.bin/mocha --compilers 'coffee:coffee-script/register' -R tap
+    command: node_modules/.bin/mocha --compilers 'coffee:coffee-script/register' --reporter tap
     protocol: tap
-before_tests: node_modules/.bin/coffee -o build/test -c test && node_modules/.bin/component build --dev
+before_tests: node_modules/.bin/coffee -o build/test -c test
 on_exit: rm -rf build
 launch_in_ci:
   - node
