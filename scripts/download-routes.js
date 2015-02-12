@@ -1,7 +1,8 @@
 var r = require('request');
 
 
-var uri = 'https://api-rest-stage.littlebitscloud.cc/options';
+var uri = 'https://api-http.littlebitscloud.cc/options';
+// var uri = 'http://localhost:8000/options';
 
 r.get(uri, {json: true}, handle_response);
 
@@ -16,6 +17,6 @@ function handle_response(err, res, body){
 }
 
 function prepare_source(source){
-  return  '\n// Generated from scripts/download-routes.js on '+ Date() +
-          '\n\nmodule.exports = ' + JSON.stringify(source, null, 2) + ';';
+  return '\n// Generated from scripts/download-routes.js on ' + Date() +
+         '\n\nmodule.exports = ' + JSON.stringify(source, null, 2) + ';';
 }
