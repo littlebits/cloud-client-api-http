@@ -8,7 +8,7 @@ device_hash = '34b5eada90b51d4713a21db848b18ae4'
 
 describe '.activate', ->
 
-  it 'sends a POST with only hash payload', (done)->
+  it 'can send a POST with only hash payload', (done)->
     server = fix.request().post('/devices/a1', { device_hash }).reply(201, {})
     api.activate 'a1', { device_hash }, a.successful_response server, done
 
