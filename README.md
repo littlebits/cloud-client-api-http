@@ -67,7 +67,7 @@ assert api.defaults({...}) !== api
 api.defaults({...}).defaults({...})/* ad infinitum*/.output.defaults({...}).defaults({...}) /* ad infinitum */
 
 // 3. defaults can be introspected by passing no arguments, e.g. given a stock api instnace
-api.defualts()
+api.defaults()
 // -> { host: 'https://api-http.littlebitscloud.cc', version: '2' }
 
 

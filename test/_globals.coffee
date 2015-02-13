@@ -24,3 +24,11 @@ a.successful_response = (server, done)->
     a !err, err?.message
     server.done()
     done()
+
+# TODO: need to make this make sense
+a.unauthorized_response = (server, done)->
+  (err, result)->
+    a err
+    a err.status, 401
+    server.done()
+    done()
