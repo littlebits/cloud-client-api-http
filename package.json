@@ -21,19 +21,19 @@
   "author": "Jason Kuhrt <jasonkuhrt@me.com> (http://jasonkuhrt.com/)",
   "name": "littlebits-cloud-http",
   "homepage": "https://github.com/littlebits/cloud-client-api-http",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "main": "lib/index.js",
   "description": "Lightweight wrapper for littleBits Cloud HTTP API",
   "devDependencies": {
-    "browserify": "~3.44.1",
-    "chai": "^1.9.1",
     "coffee-script": "^1.7.1",
-    "component": "^1.0.0-rc5",
-    "es5-shim": "~3.0.2",
-    "mocha": "^2.1.0",
-    "plat": "^0.1.0",
+    "chai": "^1.9.1",
     "request": "~2.34.0",
-    "testem": "~0.6.15"
+    "plat": "^0.1.0",
+    "browserify": "~3.44.1",
+    "testem": "~0.6.15",
+    "mocha": "^2.1.0",
+    "component": "^1.0.0-rc5",
+    "es5-shim": "~3.0.2"
   },
   "bugs": {
     "url": "https://github.com/littlebits/cloud-client-api-http/issues"
