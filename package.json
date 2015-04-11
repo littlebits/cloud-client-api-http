@@ -6,7 +6,7 @@
     "test-debug": "DEBUG=littlebits* npm start",
     "dev": "npm start",
     "devall": "testem",
-    "dist": "duo dist/index.js > dist/littleBitsAPI.js && uglifyjs dist/littleBitsAPI.js > dist/littleBitsAPI.min.js",
+    "dist": "browserify dist/index.js -o dist/littleBitsAPI.js && uglifyjs dist/littleBitsAPI.js > dist/littleBitsAPI.min.js",
     "download-routes": "node scripts/download-routes.js > lib/routes.js"
   },
   "dependencies": {
