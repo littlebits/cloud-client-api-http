@@ -19,5 +19,13 @@ describe '.output', ->
       percent: 99
 
     server = fix.request().post('/devices/a1/output', conf).reply(200, {})
+    api.output 'a1', conf, a.successful_response server, done
 
+
+  it 'does not treat percent 0 as having not been given', (done)->
+    conf =
+      duration_ms: 50
+      percent: 0
+
+    server = fix.request().post('/devices/a1/output', conf).reply(200, {})
     api.output 'a1', conf, a.successful_response server, done
