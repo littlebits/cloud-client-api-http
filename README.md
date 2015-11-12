@@ -3,9 +3,11 @@
 Lightweight wrapper for littleBits Cloud HTTP API
 
 
+
 ## Installation
+
 ```
-npm install --save littlebits-cloud-http
+npm install --save @littlebits/cloud-http
 ```
 
 

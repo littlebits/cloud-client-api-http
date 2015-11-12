@@ -7,7 +7,8 @@
     "dev": "npm start",
     "devall": "testem",
     "dist": "browserify dist/index.js -o dist/littleBitsAPI.js && uglifyjs dist/littleBitsAPI.js > dist/littleBitsAPI.min.js",
-    "download-routes": "node scripts/download-routes.js > lib/routes.js"
+    "download-routes": "node scripts/download-routes.js > lib/routes.js",
+    "postversion": "git push && git push --tags && npm publish"
   },
   "dependencies": {
     "lodash.transform": "^3.0.0",
@@ -20,7 +21,7 @@
     "url": "git://github.com/littlebits/cloud-client-api-http.git"
   },
   "author": "Jason Kuhrt <jasonkuhrt@me.com> (http://jasonkuhrt.com/)",
-  "name": "littlebits-cloud-http",
+  "name": "@littlebits/cloud-http",
   "homepage": "https://github.com/littlebits/cloud-client-api-http",
   "version": "0.3.4",
   "main": "lib/index.js",
