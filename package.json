@@ -12,7 +12,7 @@
   "dependencies": {
     "lodash.transform": "^3.0.0",
     "merge": "^1.2.0",
-    "superagent": "~0.17.0",
+    "superagent": "^1.4.0",
     "to-snake-case": "^0.1.2"
   },
   "repository": {
