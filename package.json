@@ -1,5 +1,5 @@
 {
-  "license": "GPLv3",
+  "license": "GPL-3.0",
   "scripts": {
     "test": "testem ci",
     "start": "mocha --compilers 'coffee:coffee-script/register' --watch",
