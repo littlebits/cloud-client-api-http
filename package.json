@@ -33,7 +33,6 @@
     "browserify": "~3.44.1",
     "testem": "~0.6.15",
     "mocha": "^2.1.0",
-    "component": "^1.0.0-rc5",
     "es5-shim": "~3.0.2"
   },
   "bugs": {
