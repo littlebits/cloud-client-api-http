@@ -13,7 +13,7 @@
   "dependencies": {
     "lodash.transform": "^3.0.0",
     "merge": "^1.2.0",
-    "superagent": "^1.4.0",
+    "superagent": "^5.1.0",
     "to-snake-case": "^0.1.2"
   },
   "repository": {
@@ -27,15 +27,15 @@
   "main": "lib/index.js",
   "description": "Lightweight wrapper for littleBits Cloud HTTP API",
   "devDependencies": {
-    "browserify": "~3.44.1",
+    "browserify": "^16.5.0",
     "chai": "^3.4.1",
     "coffee-script": "^1.7.1",
     "es5-shim": "~3.0.2",
-    "mocha": "^2.1.0",
-    "nock": "^2.17.0",
+    "mocha": "^6.2.2",
+    "nock": "^11.7.0",
     "plat": "^0.1.0",
-    "request": "~2.34.0",
-    "tap": "^2.2.0"
+    "request": "^2.88.0",
+    "tap": "^14.9.2"
   },
   "bugs": {
     "url": "https://github.com/littlebits/cloud-client-api-http/issues"
